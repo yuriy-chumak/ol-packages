@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+make
+
+install -d $DESTDIR/usr/lib/ol/otus
+install -m 644 otus/ann.scm $DESTDIR/usr/lib/ol/otus/ann.scm
+install -m 644 libol-ann.so $DESTDIR/usr/lib
