@@ -6,6 +6,7 @@ h=$(mktemp)
 trap "rm -f $h; exit 0" EXIT
 
 cat src/olvm.c |sed -n '1,/USE_OLVM_DECLARATION/p' |sed '$ d' >$h
+echo "#endif//__OLVM_C__" >>$h
 
 install -d $DESTDIR/usr/include/ol
 install -m 644 $h $DESTDIR/usr/include/ol/olvm.h
