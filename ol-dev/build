@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+export DESTDIR=$1
+
+h=$(mktemp)
+trap "rm -f $h; exit 0" EXIT
+
+cat src/olvm.c |sed -n '1,/USE_OLVM_DECLARATION/p' |sed '$ d' >$h
+
+install -d $DESTDIR/usr/include/ol
+install -m 644 $h $DESTDIR/usr/include/ol/olvm.h
