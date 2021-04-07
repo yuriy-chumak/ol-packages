@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+# fetch newton-dynamics library source code
+git submodule init
+git submodule update --depth 1
+
+# build shared library and install .so+.scm
+make
+make install
