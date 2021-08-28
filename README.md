@@ -40,6 +40,7 @@ Sample steps as all-in-one shell script:
 sudo wget https://raw.githubusercontent.com/kisslinux/kiss/master/kiss -O /usr/local/sbin/kiss
 sudo chmod +x /usr/local/sbin/kiss
 git clone https://github.com/yuriy-chumak/ol-packages ~/.kiss/ol-packages
+export KISS_PATH=/home/$USER/.kiss/ol-packages
 echo 'export KISS_PATH=/home/$USER/.kiss/ol-packages' >> ~/.bashrc
 
 kiss update
