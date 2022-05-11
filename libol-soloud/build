@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+sed -i -e 's/\(add_library(\${TARGET_NAME}\) \(\${TARGET_SOURCES})\)/\1 SHARED \2/' contrib/src.cmake
+
+cmake -DSOLOUD_DYNAMIC=ON -DSOLOUD_C_API=ON -DSOLOUD_STATIC=OFF contrib/
+make
+make install
