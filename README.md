@@ -1,60 +1,94 @@
 OL-PACKAGES REPOSITORY
 ======================
 
-Otus Lisp Packages Repository
+An Otus Lisp Packages Repository, with the [kiss](https://k1sslinux.org/package-manager) package manager as a management tool.
 
-Use [kiss](https://k1sslinux.org/package-manager) package manager.
+INSTALL "KISS"
+--------------
 
-PREPARATION STEPS
------------------
+### Automatic install
 
-* Install KISS package manager: Simply download [just one source file](https://raw.githubusercontent.com/kisslinux/kiss/master/kiss) into any accessible by $PATH directory, "/usr/local/sbin" for example.
-  ```
-  $ sudo wget https://raw.githubusercontent.com/kisslinux/kiss/master/kiss -O /usr/local/sbin/kiss
-  $ sudo chmod +x /usr/local/sbin/kiss
-  ```
-
-* Clone this repository into any allowing read/write path, ".kiss/ol-packages" for excample.
-  ```
-  $ git clone https://github.com/yuriy-chumak/ol-packages ~/.kiss/ol-packages
-  ```
-
-* Create new global variable KISS_PATH (or append existing if any) to the cloned directory path.
-  ```
-  $ export KISS_PATH=/home/$USER/.kiss/ol-packages
-  ```
-  Note: You can add this string at the end of `~/.bashrc`.
-  ```
-  $ echo export KISS_PATH=/home/$USER/.kiss/ol-packages >> ~/.bashrc
-  ```
-
-* Run `kiss update`.
-  ```
-  $ kiss update
-  ```
-
-Thats all, KISS ready to go.
-
-Sample steps as all-in-one shell script:
 ```bash
-sudo wget https://raw.githubusercontent.com/kisslinux/kiss/master/kiss -O /usr/local/sbin/kiss
-sudo chmod +x /usr/local/sbin/kiss
-git clone https://github.com/yuriy-chumak/ol-packages ~/.kiss/ol-packages
-export KISS_PATH=/home/$USER/.kiss/ol-packages
-echo 'export KISS_PATH=/home/$USER/.kiss/ol-packages' >> ~/.bashrc
-
-kiss update
+source <(curl -fsSL https://raw.githubusercontent.com/yuriy-chumak/ol-packages/master/install.sh)
 ```
+
+Paste that in a shell prompt and run.
+
+### Alternative (manual) install
+
+- [Manual install instructions](install-manual.md)
+
 
 USAGE
 -----
 
-* kiss b package-name
+- Install package
+  ```bash
+  $ kiss build package-name
   ```
-  $ kiss b ol
+
+  Example:
+  ```
+  $ kiss build libol-soloud
+  -> Building: explicit: libol-soloud
+  -> Checking for pre-built dependencies
+  -> libol-soloud Reading sources
+  found git+https://github.com/jarikomppa/soloud.git#1157475881da0d7f76102578255b937c7d4e8f57
+  -> libol-soloud Checking out 1157475881da0d7f76102578255b937c7d4e8f57
+  remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+  From https://github.com/jarikomppa/soloud
+  * branch            1157475881da0d7f76102578255b937c7d4e8f57 -> FETCH_HEAD
+  HEAD is now at 1157475 Duck filter
+  -> libol-soloud Verifying sources
+  -> libol-soloud Building package (1/1)
+  -> libol-soloud Extracting sources
+  -> libol-soloud Starting build
+  -- The C compiler identification is GNU 9.4.0
+  -- The CXX compiler identification is GNU 9.4.0
+  .........
+  -- Configuring done
+  -- Generating done
+  -- Build files have been written to: /home/$USER/.cache/kiss/proc/26208/build/libol-soloud
+  Scanning dependencies of target soloud
+  [  1%] Building CXX object CMakeFiles/soloud.dir/src/core/soloud.cpp.o
+  [  3%] Building CXX object CMakeFiles/soloud.dir/src/core/soloud_audiosource.cpp.o
+  .........
+  -- Installing: /home/$USER/.cache/kiss/proc/26208/pkg/libol-soloud/usr/local/share/SoLoud/cmake/soloud-config-noconfig.cmake
+  -> libol-soloud Successfully built package
+  -> libol-soloud Generating manifest
+  -> libol-soloud Stripping binaries and libraries
+  strip -s -R .comment -R .note /home/$USER/.cache/kiss/proc/26208/pkg/libol-soloud/usr/local/lib64/libsoloud.so
+  -> libol-soloud looking for dependencies (using readelf)
+  -> libol-soloud Generating etcsums
+  -> libol-soloud Creating tarball
+  -> libol-soloud Successfully created tarball
+  -> Install built packages? [libol-soloud]
+  -> Continue?: Press Enter to continue or Ctrl+C to abort
+
+  Using /usr/bin/sudo (to become root)
+  [sudo] password for $USER:
+  -> libol-soloud Checking if manifest valid
+  -> libol-soloud Checking if package installable
+  -> libol-soloud Checking for package conflicts
+  -> libol-soloud Installing package (libol-soloud@20200207-2.tar.gz)
+  -> libol-soloud Installed successfully
+  ```
+
+- Uninstall package
+  ```bash
+  $ kiss remove package-name
+  ```
+
+  Example:
+  ```
+  $ kiss remove libol-soloud
+  Using /usr/bin/sudo (to become root)
+  -> libol-soloud Checking if package removable
+  -> libol-soloud Removing package
+  -> libol-soloud Removed successfully
   ```
 
 BTW
 ---
 
-* Run "kiss update" to keep repositories up-to-date periodically.
+* Run "kiss update" to keep repository up-to-date periodically.
