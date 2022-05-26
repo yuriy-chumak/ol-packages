@@ -1,7 +1,7 @@
 OL-PACKAGES REPOSITORY
 ======================
 
-An Otus Lisp Packages Repository, with the [kiss](https://k1sslinux.org/package-manager) package manager as a management tool.
+An [Otus Lisp](https://github.com/yuriy-chumak/ol) Packages Repository, with the [kiss](https://kisslinux.org/package-manager) package manager as a management tool.
 
 
 INSTALL "KISS"
