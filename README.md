@@ -9,8 +9,20 @@ INSTALL "KISS"
 
 ### Automatic install
 
+Note: `git` required.
 ```bash
 source <(curl -fsSL https://raw.githubusercontent.com/yuriy-chumak/ol-packages/master/install.sh)
+```
+
+Paste that in a shell prompt and run.
+
+### VirtualEnv install
+
+This install does not require `git`, but is not able of updating the repository to the latest changes.
+Designed to be used as a "virtual" ol environment.
+
+```bash
+source <(curl -fsSL https://raw.githubusercontent.com/yuriy-chumak/ol-packages/master/install-venv.sh)
 ```
 
 Paste that in a shell prompt and run.
