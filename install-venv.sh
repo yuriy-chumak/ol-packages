@@ -5,7 +5,7 @@ PWD=`pwd`
 mkdir -p $REPO
 cd $REPO
 
-curl -fsSL https://github.com/yuriy-chumak/ol-packages/archive/refs/tags/0.2.tar.gz| tar -xz --strip-components=1
+curl -fsSL https://github.com/yuriy-chumak/ol-packages/archive/refs/tags/0.3.tar.gz| tar -xz --strip-components=1
 chmod +x $REPO/kiss # sanity chmod
 
 echo "# ol-packages repo setup (venv)" >>~/.bashrc
