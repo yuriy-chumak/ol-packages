@@ -31,6 +31,19 @@ Paste that in a shell prompt and run.
 
 - [Manual install instructions](install-manual.md)
 
+UNINSTALL
+---------
+
+- Remove next lines from the `$USER/.bashrc` file:
+  ```
+  # ol-packages repo setup
+  export KISS_PATH=:/home/...
+  export PATH=$PATH:/home/...
+  ```
+- Completely remove folder `$USER/.kiss` (repository files),
+- Completely remove folder `$USER/.cache/kiss` (intermediate files and artifacts),
+- Restart terminal console.
+
 
 USAGE
 -----
