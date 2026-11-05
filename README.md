@@ -1,7 +1,11 @@
+❗❗❗ THIS REPOSITORY MOVED TO https://github.com/otus-lisp/ol-packages ❗❗❗
+
+This repository has been moved to the main `otus-lisp` repository and will no longer be updated. It will soon be archived and deleted.
+
 OL-PACKAGES REPOSITORY
 ======================
 
-An [Otus Lisp](https://github.com/yuriy-chumak/ol) Packages Repository, with the [kiss](https://kisslinux.org/package-manager) package manager as a management tool.
+An [Otus Lisp](https://github.com/yuriy-chumak/ol) Packages Repository, with the [kiss](https://kisslinux.github.io/wiki/package-manager) package manager as a management tool.
 
 
 INSTALL "KISS"
@@ -11,7 +15,7 @@ INSTALL "KISS"
 
 Note: `git` required.
 ```bash
-source <(curl -fsSL https://raw.githubusercontent.com/yuriy-chumak/ol-packages/master/install.sh)
+source <(curl -fsSL https://raw.githubusercontent.com/otus-lisp/ol-packages/master/install.sh)
 ```
 
 Paste that in a shell prompt and run.
@@ -22,7 +26,7 @@ This install does not require `git`, but is not able of updating the repository 
 Designed to be used as a "virtual" ol environment.
 
 ```bash
-source <(curl -fsSL https://raw.githubusercontent.com/yuriy-chumak/ol-packages/master/install-venv.sh)
+source <(curl -fsSL https://raw.githubusercontent.com/otus-lisp/ol-packages/master/install-venv.sh)
 ```
 
 Paste that in a shell prompt and run.
